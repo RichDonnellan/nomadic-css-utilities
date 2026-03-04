@@ -90,7 +90,7 @@ The plugin uses the `css_class_manager_filtered_class_names` filter to register 
 
 > For content editors. Share this section with clients.
 
-Some blocks support a **CSS Class** field in the block settings sidebar under *Advanced*. You can type class names there to control layout, spacing, and text size — without needing a developer.
+Every block has a **CSS Class** field in the block settings sidebar under *Advanced*. You can type class names there to control layout, spacing, and text size — without needing a developer.
 
 **All class names start with `n-`** to keep them separate from the theme's own styles.
 
