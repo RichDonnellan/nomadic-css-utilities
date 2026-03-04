@@ -119,10 +119,12 @@ Numbers represent pixels: `4 8 12 16 20 24 32 40 48 56 64 80 96 128 160`
 
 | Class | What it does |
 |-------|-------------|
+| `n-p-{n}` | Padding all sides |
 | `n-pt-{n}` | Padding top |
 | `n-pb-{n}` | Padding bottom |
 | `n-py-{n}` | Padding top and bottom |
 | `n-px-{n}` | Padding left and right |
+| `n-m-{n}` | Margin all sides |
 | `n-mt-{n}` | Margin top |
 | `n-mb-{n}` | Margin bottom |
 
