@@ -40,7 +40,7 @@ The WordPress block editor exposes layout controls, but they're inconsistent and
 
 ### Spacing
 
-Spacing scale (px): `0 4 8 12 16 20 24 32 40 48 56 64 80 96 128 160`
+Spacing scale (px): `0 1 4 8 12 16 20 24 32 40 48 56 64 80 96 128 160`
 
 | Prefix | Property |
 |--------|----------|
@@ -115,7 +115,7 @@ Desktop-only block: `n-hidden tablet:n-block`
 
 ### Spacing
 
-Numbers represent pixels: `4 8 12 16 20 24 32 40 48 56 64 80 96 128 160`
+Numbers represent pixels: `0 1 4 8 12 16 20 24 32 40 48 56 64 80 96 128 160`
 
 | Class | What it does |
 |-------|-------------|
