@@ -488,6 +488,26 @@
 .n-overflow-y-hidden { overflow-y: hidden !important; }
 
 /* ─────────────────────────────────────────────────────────────────────────────
+   BORDER RADIUS
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Border Radius */
+.n-rounded-0 { border-radius: 0 !important; }
+.n-rounded-1 { border-radius: 1px !important; }
+.n-rounded-4 { border-radius: 4px !important; }
+.n-rounded-8 { border-radius: 8px !important; }
+.n-rounded-12 { border-radius: 12px !important; }
+.n-rounded-16 { border-radius: 16px !important; }
+.n-rounded-20 { border-radius: 20px !important; }
+.n-rounded-24 { border-radius: 24px !important; }
+.n-rounded-32 { border-radius: 32px !important; }
+.n-rounded-40 { border-radius: 40px !important; }
+.n-rounded-48 { border-radius: 48px !important; }
+.n-rounded-56 { border-radius: 56px !important; }
+.n-rounded-64 { border-radius: 64px !important; }
+.n-rounded-9999 { border-radius: 9999px !important; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
    TYPOGRAPHY — Font Weight, Style, Transform, Leading, Tracking
    ───────────────────────────────────────────────────────────────────────────── */
 
@@ -977,6 +997,21 @@
 .tablet\:n-text-56 { font-size: 56px !important; }
 .tablet\:n-text-64 { font-size: 64px !important; }
 .tablet\:n-text-72 { font-size: 72px !important; }
+/* Border Radius */
+.tablet\:n-rounded-0 { border-radius: 0 !important; }
+.tablet\:n-rounded-1 { border-radius: 1px !important; }
+.tablet\:n-rounded-4 { border-radius: 4px !important; }
+.tablet\:n-rounded-8 { border-radius: 8px !important; }
+.tablet\:n-rounded-12 { border-radius: 12px !important; }
+.tablet\:n-rounded-16 { border-radius: 16px !important; }
+.tablet\:n-rounded-20 { border-radius: 20px !important; }
+.tablet\:n-rounded-24 { border-radius: 24px !important; }
+.tablet\:n-rounded-32 { border-radius: 32px !important; }
+.tablet\:n-rounded-40 { border-radius: 40px !important; }
+.tablet\:n-rounded-48 { border-radius: 48px !important; }
+.tablet\:n-rounded-56 { border-radius: 56px !important; }
+.tablet\:n-rounded-64 { border-radius: 64px !important; }
+.tablet\:n-rounded-9999 { border-radius: 9999px !important; }
 
 }
 
@@ -1412,5 +1447,20 @@
 .desktop\:n-text-56 { font-size: 56px !important; }
 .desktop\:n-text-64 { font-size: 64px !important; }
 .desktop\:n-text-72 { font-size: 72px !important; }
+/* Border Radius */
+.desktop\:n-rounded-0 { border-radius: 0 !important; }
+.desktop\:n-rounded-1 { border-radius: 1px !important; }
+.desktop\:n-rounded-4 { border-radius: 4px !important; }
+.desktop\:n-rounded-8 { border-radius: 8px !important; }
+.desktop\:n-rounded-12 { border-radius: 12px !important; }
+.desktop\:n-rounded-16 { border-radius: 16px !important; }
+.desktop\:n-rounded-20 { border-radius: 20px !important; }
+.desktop\:n-rounded-24 { border-radius: 24px !important; }
+.desktop\:n-rounded-32 { border-radius: 32px !important; }
+.desktop\:n-rounded-40 { border-radius: 40px !important; }
+.desktop\:n-rounded-48 { border-radius: 48px !important; }
+.desktop\:n-rounded-56 { border-radius: 56px !important; }
+.desktop\:n-rounded-64 { border-radius: 64px !important; }
+.desktop\:n-rounded-9999 { border-radius: 9999px !important; }
 
 }

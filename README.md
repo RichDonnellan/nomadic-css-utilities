@@ -80,6 +80,12 @@ Height scale (px): `0 1 4 8 12 16 20 24 32 40 48 56 64 80 96 128 160 200 240 320
 ### Object Position _(base only)_
 `n-object-center` `n-object-top` `n-object-bottom` `n-object-left` `n-object-right`
 
+### Border Radius
+
+Scale (px): `0 1 4 8 12 16 20 24 32 40 48 56 64 9999`
+
+`n-rounded-{n}` — sets `border-radius`. Use `n-rounded-9999` for pill/full. Responsive variants available.
+
 ### Overflow _(base only)_
 `n-overflow-auto` `n-overflow-hidden` `n-overflow-visible` `n-overflow-clip`
 `n-overflow-x-auto` `n-overflow-x-hidden` `n-overflow-x-visible` `n-overflow-x-clip`
@@ -135,7 +141,7 @@ Font size scale (px): `12 14 16 18 20 24 28 32 36 40 48 56 64 72`
 
 Most utilities include `tablet:` and `desktop:` variants. Base-only utilities (aspect ratio, object fit, overflow, typography extras) don't — they're set once and rarely need to change per breakpoint.
 
-**Responsive:** display, flex, grid, alignment, self, text-align, order, col span, width, height, spacing, font-size
+**Responsive:** display, flex, grid, alignment, self, text-align, order, col span, width, height, spacing, font-size, border radius
 
 **Base only:** min-height, aspect ratio, object fit/position, overflow, font weight, font style, text transform, line height, letter spacing
 
