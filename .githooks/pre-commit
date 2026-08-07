@@ -1,0 +1,64 @@
+#!/bin/sh
+#
+# Blocks a commit on a PHP syntax error or an unformatted file.
+#
+# CHECKS STAGED CONTENT, NOT THE WORKING TREE. `git add -p` can stage a
+# subset of a file, so what is about to land is not necessarily what is on
+# disk. Every check reads `git show :file`, which is the version being
+# committed. Checking the working tree instead would pass a commit that
+# breaks the moment it is checked out.
+#
+# Prettier is fed through --stdin-filepath rather than a temp path so it
+# still resolves .prettierrc.mjs and .prettierignore from the real location
+# in the repo. Exit 1 from it means "not formatted"; exit 2 means "no parser
+# for this extension" (SVGs, .gitignore) and is deliberately ignored, or the
+# hook would block on files Prettier was never going to touch.
+#
+# Enable per clone (core.hooksPath is local config, not versioned):
+#   git config core.hooksPath .githooks
+#
+# Bypass once: git commit --no-verify
+
+repo_root=$(git rev-parse --show-toplevel) || exit 1
+cd "$repo_root" || exit 1
+
+staged=$(git diff --cached --name-only --diff-filter=ACMR)
+[ -z "$staged" ] && exit 0
+
+tmpdir=$(mktemp -d) || exit 1
+trap 'rm -rf "$tmpdir"' EXIT
+
+prettier="$repo_root/node_modules/.bin/prettier"
+
+git diff --cached --name-only --diff-filter=ACMR |
+	while IFS= read -r file; do
+		case "$file" in
+		*.php)
+			git show ":$file" >"$tmpdir/staged.php" 2>/dev/null || continue
+			if ! php -l "$tmpdir/staged.php" >/dev/null 2>&1; then
+				printf 'PHP syntax error  %s\n' "$file"
+				php -l "$tmpdir/staged.php" 2>&1 |
+					sed "s|$tmpdir/staged.php|$file|; s|^|    |"
+				: >"$tmpdir/failed"
+			fi
+			;;
+		esac
+
+		[ -x "$prettier" ] || continue
+
+		git show ":$file" 2>/dev/null |
+			"$prettier" --check --stdin-filepath "$file" >/dev/null 2>&1
+
+		if [ $? -eq 1 ]; then
+			printf 'Not formatted     %s\n' "$file"
+			: >"$tmpdir/failed"
+		fi
+	done
+
+if [ -e "$tmpdir/failed" ]; then
+	printf '\nCommit blocked. Fix formatting with: npm run format\n'
+	printf 'Then re-stage. To skip these checks: git commit --no-verify\n'
+	exit 1
+fi
+
+exit 0
