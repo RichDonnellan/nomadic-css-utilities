@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 // that suppresses theme.json-derived classes, and works regardless of whether
 // the theme generates global styles.
 //
-// Classes are sorted base-first, then tablet:, then desktop: — alphabetical
-// within each tier — so the picker reflects the mobile-first authoring order.
+// Priority controls dropdown order — higher number appears first.
+// Base utilities: 30 → tablet: 20 → desktop: 10 (mobile-first authoring order).
 // ─────────────────────────────────────────────────────────────────────────────
 add_filter( 'css_class_manager_filtered_class_names', function ( array $class_names ): array {
     if ( ! class_exists( '\CSSClassManager\ClassPreset' ) ) {
@@ -44,15 +44,9 @@ add_filter( 'css_class_manager_filtered_class_names', function ( array $class_na
     $names = array_unique( $matches[1] );
     $names = array_map( fn( $n ) => str_replace( '\\:', ':', $n ), $names );
 
-    // Sort base classes first, then tablet:, then desktop: — alphabetical within each group.
-    usort( $names, function ( $a, $b ) {
-        $tier = fn( $n ) => str_starts_with( $n, 'desktop:' ) ? 2 : ( str_starts_with( $n, 'tablet:' ) ? 1 : 0 );
-        $diff = $tier( $a ) - $tier( $b );
-        return $diff !== 0 ? $diff : strcmp( $a, $b );
-    } );
-
     foreach ( $names as $name ) {
-        $class_names[] = new \CSSClassManager\ClassPreset( $name );
+        $priority     = str_starts_with( $name, 'desktop:' ) ? 10 : ( str_starts_with( $name, 'tablet:' ) ? 20 : 30 );
+        $class_names[] = new \CSSClassManager\ClassPreset( $name, '', null, $priority );
     }
 
     return $class_names;
