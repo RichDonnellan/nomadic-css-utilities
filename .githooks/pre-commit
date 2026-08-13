@@ -30,6 +30,18 @@ trap 'rm -rf "$tmpdir"' EXIT
 
 prettier="$repo_root/node_modules/.bin/prettier"
 
+# Pin the ROOT config. Prettier resolves per file, and nomadic-child carries a
+# template/.prettierrc.mjs written for the directory it gets copied TO — from
+# inside the repo it cannot resolve, so per-file resolution errors on every
+# templated file. The repo's own npm scripts pass --config for this reason.
+prettier_config=""
+for candidate in "$repo_root/.prettierrc.mjs" "$repo_root/prettier.config.js"; do
+	if [ -f "$candidate" ]; then
+		prettier_config="$candidate"
+		break
+	fi
+done
+
 git diff --cached --name-only --diff-filter=ACMR |
 	while IFS= read -r file; do
 		case "$file" in
@@ -46,13 +58,31 @@ git diff --cached --name-only --diff-filter=ACMR |
 
 		[ -x "$prettier" ] || continue
 
-		git show ":$file" 2>/dev/null |
-			"$prettier" --check --stdin-filepath "$file" >/dev/null 2>&1
+		err=$(git show ":$file" 2>/dev/null |
+			"$prettier" --check ${prettier_config:+--config "$prettier_config"} \
+				--stdin-filepath "$file" 2>&1 >/dev/null)
 
-		if [ $? -eq 1 ]; then
+		case $? in
+		0) ;;
+		1)
 			printf 'Not formatted     %s\n' "$file"
 			: >"$tmpdir/failed"
-		fi
+			;;
+		*)
+			# Exit 2 is usually "no parser for this extension" (SVGs,
+			# dotfiles) and is fine. It is ALSO how an unresolvable config
+			# reports itself, which would otherwise disable this check
+			# across a whole repo without saying so — seen once already.
+			case "$err" in
+			*"No parser could be inferred"*) ;;
+			*)
+				printf 'Prettier failed   %s\n' "$file"
+				printf '%s\n' "$err" | head -2 | sed 's/^/    /'
+				: >"$tmpdir/failed"
+				;;
+			esac
+			;;
+		esac
 	done
 
 if [ -e "$tmpdir/failed" ]; then
