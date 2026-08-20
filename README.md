@@ -4,13 +4,13 @@ A WordPress plugin that provides a curated set of responsive layout, spacing, an
 
 ## Why
 
-The WordPress block editor exposes layout controls, but they're inconsistent and limited. This plugin gives editors a predictable, prefix-namespaced set of utilities that work on top of (or instead of) the editor's built-in styles — without conflicting with Tailwind CSS utilities used in theme templates.
+The WordPress block editor exposes layout controls, but they're inconsistent and limited. This plugin gives editors a predictable, prefix-namespaced set of utilities that work on top of (or instead of) the editor's built-in styles, without conflicting with Tailwind CSS utilities used in theme templates.
 
 ## Approach
 
 - All classes use the `n-` prefix to avoid conflicts with Tailwind
 - `!important` on every rule to reliably override block editor inline styles
-- Mobile-first — base classes apply to all screen sizes; `tablet:` and `desktop:` prefixes escalate upward
+- Mobile-first, base classes apply to all screen sizes; `tablet:` and `desktop:` prefixes escalate upward
 - Two responsive tiers only: `tablet:` (768px+) and `desktop:` (1024px+)
 
 ## Installation
@@ -29,7 +29,7 @@ The WordPress block editor exposes layout controls, but they're inconsistent and
 `n-flex-wrap` `n-flex-nowrap` `n-flex-1` `n-flex-auto` `n-flex-none`
 
 ### Grid
-`n-grid` `n-inline-grid` `n-grid-cols-{1–6}`
+`n-grid` `n-inline-grid` `n-grid-cols-{1-6}`
 
 ### Alignment
 `n-items-{start|center|end|stretch|baseline}`
@@ -42,14 +42,14 @@ The WordPress block editor exposes layout controls, but they're inconsistent and
 `n-text-{left|center|right}`
 
 ### Order
-`n-order-first` `n-order-last` `n-order-none` `n-order-{1–6}`
+`n-order-first` `n-order-last` `n-order-none` `n-order-{1-6}`
 
 ### Grid Column Span
-`n-col-span-{1–6}` `n-col-span-full`
+`n-col-span-{1-6}` `n-col-span-full`
 
 ### Width
 
-`n-w-auto` `n-w-full` — plus fractions and px scale values
+`n-w-auto` `n-w-full`, plus fractions and px scale values
 
 | Class | Value |
 |-------|-------|
@@ -62,11 +62,11 @@ The WordPress block editor exposes layout controls, but they're inconsistent and
 
 ### Height
 
-`n-h-auto` `n-h-full` `n-h-screen` — plus px scale values
+`n-h-auto` `n-h-full` `n-h-screen`, plus px scale values
 
 Height scale (px): `0 1 4 8 12 16 20 24 32 40 48 56 64 80 96 128 160 200 240 320 400 480 560 640`
 
-`n-h-{n}` — sets `height` in px
+`n-h-{n}`, sets `height` in px
 
 #### Min-height _(base only)_
 `n-min-h-0` `n-min-h-full` `n-min-h-screen`
@@ -84,7 +84,7 @@ Height scale (px): `0 1 4 8 12 16 20 24 32 40 48 56 64 80 96 128 160 200 240 320
 
 Scale (px): `0 1 4 8 12 16 20 24 32 40 48 56 64 9999`
 
-`n-rounded-{n}` — sets `border-radius`. Use `n-rounded-9999` for pill/full. Responsive variants available.
+`n-rounded-{n}`, sets `border-radius`. Use `n-rounded-9999` for pill/full. Responsive variants available.
 
 ### Overflow _(base only)_
 `n-overflow-auto` `n-overflow-hidden` `n-overflow-visible` `n-overflow-clip`
@@ -120,7 +120,7 @@ Spacing scale (px): `0 1 4 8 12 16 20 24 32 40 48 56 64 80 96 128 160`
 
 Font size scale (px): `12 14 16 18 20 24 28 32 36 40 48 56 64 72`
 
-`n-text-{n}` — sets `font-size`
+`n-text-{n}`, sets `font-size`
 
 #### Font Weight _(base only)_
 `n-font-thin` `n-font-light` `n-font-normal` `n-font-medium` `n-font-semibold` `n-font-bold` `n-font-extrabold`
@@ -139,7 +139,7 @@ Font size scale (px): `12 14 16 18 20 24 28 32 36 40 48 56 64 72`
 
 ### Responsive Prefixes
 
-Most utilities include `tablet:` and `desktop:` variants. Base-only utilities (aspect ratio, object fit, overflow, typography extras) don't — they're set once and rarely need to change per breakpoint.
+Most utilities include `tablet:` and `desktop:` variants. Base-only utilities (aspect ratio, object fit, overflow, typography extras) don't, they're set once and rarely need to change per breakpoint.
 
 **Responsive:** display, flex, grid, alignment, self, text-align, order, col span, width, height, spacing, font-size, border radius
 
@@ -155,7 +155,7 @@ tablet:n-w-1-2             → 50% width at 768px+
 
 ## CSS Class Manager Integration
 
-The plugin uses the `css_class_manager_filtered_class_names` filter to register all classes as `ClassPreset` objects. Classes appear in the editor's class picker automatically — no manual entry required.
+The plugin uses the `css_class_manager_filtered_class_names` filter to register all classes as `ClassPreset` objects. Classes appear in the editor's class picker automatically, no manual entry required.
 
 Classes are ordered base → `tablet:` → `desktop:` within each group, so the picker reflects the natural mobile-first authoring order.
 
@@ -165,7 +165,7 @@ Classes are ordered base → `tablet:` → `desktop:` within each group, so the 
 
 > For content editors. Share this section with clients.
 
-Every block has a **CSS Class** field in the block settings sidebar under *Advanced*. You can type class names there to control layout, spacing, and text size — without needing a developer.
+Every block has a **CSS Class** field in the block settings sidebar under *Advanced*. You can type class names there to control layout, spacing, and text size, without needing a developer.
 
 **All class names start with `n-`** to keep them separate from the theme's own styles.
 
@@ -228,8 +228,8 @@ Sizes in pixels: `12 14 16 18 20 24 28 32 36 40 48 56 64 72`
 
 ### Responsive prefixes
 
-- No prefix — applies on all screen sizes
-- `tablet:` — applies at 768px and above
-- `desktop:` — applies at 1024px and above
+- No prefix, applies on all screen sizes
+- `tablet:`, applies at 768px and above
+- `desktop:`, applies at 1024px and above
 
 Stack them freely: `n-text-18 tablet:n-text-24 desktop:n-text-32`

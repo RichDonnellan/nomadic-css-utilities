@@ -1,5 +1,5 @@
 /*
- * Nomadic CSS Utilities Framework — utilities.css
+ * Nomadic CSS Utilities Framework, utilities.css
  * Version: 1.0.0
  *
  * A curated set of responsive layout, spacing, and typography utilities
@@ -8,14 +8,14 @@
  * PREFIX: All classes use the `n-` prefix to avoid conflicts with
  * Tailwind CSS utilities loaded by the theme.
  *
- * BREAKPOINTS (mobile-first — base styles target mobile):
+ * BREAKPOINTS (mobile-first, base styles target mobile):
  *   tablet:   min-width: 768px
  *   desktop:  min-width: 1024px
  *
  * SPACING SCALE (px):
  *   0, 1, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80, 96, 128, 160
  *
- * HEIGHT SCALE (px) — extends spacing scale for taller sections:
+ * HEIGHT SCALE (px), extends spacing scale for taller sections:
  *   ...128, 160, 200, 240, 320, 400, 480, 560, 640
  *
  * FONT SCALE (px):
@@ -508,7 +508,7 @@
 .n-rounded-9999 { border-radius: 9999px !important; }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   TYPOGRAPHY — Font Weight, Style, Transform, Leading, Tracking
+   TYPOGRAPHY, Font Weight, Style, Transform, Leading, Tracking
    ───────────────────────────────────────────────────────────────────────────── */
 
 /* Font Weight */
@@ -546,7 +546,7 @@
 .n-tracking-widest { letter-spacing: 0.2em !important; }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   TYPOGRAPHY — Font Size
+   TYPOGRAPHY, Font Size
    ───────────────────────────────────────────────────────────────────────────── */
 
 /* Font Size */
@@ -566,7 +566,7 @@
 .n-text-72 { font-size: 72px !important; }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   RESPONSIVE — tablet: (min-width: 768px)
+   RESPONSIVE, tablet: (min-width: 768px)
    ───────────────────────────────────────────────────────────────────────────── */
 
 @media (min-width: 768px) {
@@ -1016,7 +1016,7 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   RESPONSIVE — desktop: (min-width: 1024px)
+   RESPONSIVE, desktop: (min-width: 1024px)
    ───────────────────────────────────────────────────────────────────────────── */
 
 @media (min-width: 1024px) {

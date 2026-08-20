@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // that suppresses theme.json-derived classes, and works regardless of whether
 // the theme generates global styles.
 //
-// Priority controls dropdown order — higher number appears first.
+// Priority controls dropdown order, higher number appears first.
 // Base utilities: 30 → tablet: 20 → desktop: 10 (mobile-first authoring order).
 // ─────────────────────────────────────────────────────────────────────────────
 add_filter( 'css_class_manager_filtered_class_names', function ( array $class_names ): array {

@@ -31,7 +31,7 @@ trap 'rm -rf "$tmpdir"' EXIT
 prettier="$repo_root/node_modules/.bin/prettier"
 
 # Pin the ROOT config. Prettier resolves per file, and nomadic-child carries a
-# template/.prettierrc.mjs written for the directory it gets copied TO — from
+# template/.prettierrc.mjs written for the directory it gets copied TO, from
 # inside the repo it cannot resolve, so per-file resolution errors on every
 # templated file. The repo's own npm scripts pass --config for this reason.
 prettier_config=""
@@ -72,7 +72,7 @@ git diff --cached --name-only --diff-filter=ACMR |
 			# Exit 2 is usually "no parser for this extension" (SVGs,
 			# dotfiles) and is fine. It is ALSO how an unresolvable config
 			# reports itself, which would otherwise disable this check
-			# across a whole repo without saying so — seen once already.
+			# across a whole repo without saying so, seen once already.
 			case "$err" in
 			*"No parser could be inferred"*) ;;
 			*)

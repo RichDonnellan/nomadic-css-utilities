@@ -20,10 +20,10 @@ add_action( 'wp_enqueue_scripts', function () {
 //
 // Two hooks are required because they serve different purposes:
 //
-//   enqueue_block_editor_assets — registers the stylesheet in the outer admin
+//   enqueue_block_editor_assets, registers the stylesheet in the outer admin
 //   shell. CSS Class Manager scans this context to build its class index.
 //
-//   add_editor_style (after_setup_theme) — loads the stylesheet into the editor
+//   add_editor_style (after_setup_theme), loads the stylesheet into the editor
 //   canvas iframe where visual block editing happens. Without this, the
 //   utilities are invisible in the actual editing surface.
 // ─────────────────────────────────────────────────────────────────────────────

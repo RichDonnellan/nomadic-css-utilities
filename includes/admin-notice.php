@@ -21,7 +21,7 @@ add_action( 'admin_notices', function () {
 
     $install_url = add_query_arg(
         array(
-            's'    => 'CSS Class Manager – An advanced autocomplete additional css class control for your blocks',
+            's'    => 'CSS Class Manager - An advanced autocomplete additional css class control for your blocks',
             'tab'  => 'search',
             'type' => 'term',
         ),
@@ -30,7 +30,7 @@ add_action( 'admin_notices', function () {
     ?>
     <div class="notice notice-warning is-dismissible">
         <p style="font-size: 15px;">
-            <strong>Nomadic CSS Utilities:</strong> Install the <strong>"CSS Class Manager"</strong> plugin to enable the class picker in the block editor —
+            <strong>Nomadic CSS Utilities:</strong> Install the <strong>"CSS Class Manager"</strong> plugin to enable the class picker in the block editor,
             <a href="<?php echo esc_url( $install_url ); ?>">click here to install it now</a>.
         </p>
     </div>
