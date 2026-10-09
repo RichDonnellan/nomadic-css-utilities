@@ -1,0 +1,20 @@
+Copyright (c) 2026 Rich Donnellan (Nomad Solutions). All rights reserved.
+
+nomadic-css-utilities is proprietary and confidential software. Its source and
+compiled output remain the exclusive property of Rich Donnellan.
+
+GRANT. A client for whom Rich Donnellan produces a project (the "Delivered
+Project") is granted a non-exclusive, non-transferable, perpetual license to
+use, run, modify, rebuild, and redeploy this software SOLELY as incorporated
+into that Delivered Project.
+
+RESTRICTIONS. Except as granted above, no person or entity may: use this
+software in any other project; extract or copy it for independent reuse;
+redistribute, sublicense, sell, or publish it; or disclose it to third parties,
+except as strictly required to operate the Delivered Project.
+
+NO WARRANTY. The software is provided "AS IS", without warranty of any kind,
+express or implied. In no event shall the author be liable for any claim,
+damages, or other liability arising from the software or its use.
+
+All rights not expressly granted are reserved.

@@ -6,8 +6,7 @@
  * Author URI:  mailto:support@nomadsolutions.dev
  * Version:     1.0.0
  * Text Domain: nomadic-css-utilities
- * License:     GPLv2 or later
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * License:     Proprietary, see LICENSE
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
